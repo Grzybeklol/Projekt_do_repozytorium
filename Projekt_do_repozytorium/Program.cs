@@ -1,3 +1,4 @@
+
 ﻿
 using Projekt_do_repozytorium;
 
@@ -10,3 +11,4 @@ foreach(var element in h.Elementy)
 }
 
 Console.ReadLine();
+
