@@ -3,7 +3,10 @@
 using Projekt_do_repozytorium;
 
 string tekst = "hefi gvewitbhbiwerh bie hrdigfdisebsoavi faousfdbaosdAsafdfsadfadG ADFdsfsdfdgdxgsdsfdsfd#$%#w$twfafs#wtrfwgsd";
-Histogram h = new Histogram(tekst);
+List<char> zakresliter = new List<char> { 'A', 'H', 'F', 'D', 'X' };
+Histogram h = new Histogram(tekst, zakresliter);
+
+
 
 h.RysujHistogram();
 

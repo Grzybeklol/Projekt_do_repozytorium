@@ -14,9 +14,11 @@ namespace Projekt_do_repozytorium
         private Dictionary<char, int> _slownik = new Dictionary<char, int>();
         public Dictionary<char, int> Elementy { get => _slownik; }
         public int Max { get => max; }
-        public Histogram(string tekst)
+        public List<char> zakres;
+        public Histogram(string tekst,List<char> zakresliter)
         {
             tekst = PrzygotujTekst(tekst);
+            zakres = zakresliter;
             UtworzSlownik(tekst);
             ZnajdzNajwiekszeWystapienie();
         }
@@ -39,10 +41,14 @@ namespace Projekt_do_repozytorium
         {
             foreach (char t in tekst)
             {
-                if (!_slownik.ContainsKey(t))
-                    _slownik[t] = 1;
-                else
-                    _slownik[t]++;
+                if (zakres.Contains(t))
+                {
+                    if (!_slownik.ContainsKey(t))
+                        _slownik[t] = 1;
+                    else
+                        _slownik[t]++;
+                }
+             
 
             }
         }
@@ -50,32 +56,37 @@ namespace Projekt_do_repozytorium
         {
 
             float skala = (float)wysokoscWykresu / Max;
-            for (int linia = 0; linia < wysokoscWykresu; linia++)
-            {
+
+           
+                for (int linia = 0; linia < wysokoscWykresu; linia++)
+                {
+                    foreach (char t in Elementy.Keys.OrderBy(s => s))
+                    {
+
+                        if (wysokoscWykresu - linia < skala * Elementy[t])
+                            Console.Write(centeredString("█", 7));
+                        else
+                            Console.Write("       ");
+
+                    }
+                    Console.WriteLine();
+                }
+                Console.WriteLine();
+                Console.WriteLine();
                 foreach (char t in Elementy.Keys.OrderBy(s => s))
                 {
-                    if (wysokoscWykresu - linia < skala * Elementy[t])
-                        Console.Write(centeredString("█", 7));
-                    else
-                        Console.Write("       ");
+                    //Console.WriteLine($"{t}:{h.Elementy[t]}");
+                    Console.Write($"   {t}   ");
 
                 }
                 Console.WriteLine();
-            }
-            Console.WriteLine();
-            Console.WriteLine();
-            foreach (char t in Elementy.Keys.OrderBy(s => s))
-            {
-                //Console.WriteLine($"{t}:{h.Elementy[t]}");
-                Console.Write($"   {t}   ");
+                foreach (char t in Elementy.Keys.OrderBy(s => s))
+                {
+                    Console.Write(centeredString(Elementy[t].ToString(), 7));
 
-            }
-            Console.WriteLine();
-            foreach (char t in Elementy.Keys.OrderBy(s => s))
-            {
-                Console.Write(centeredString(Elementy[t].ToString(), 7));
-
-            }
+                }
+            
+            
         }
         static string centeredString(string s, int width)
         {
@@ -86,7 +97,7 @@ namespace Projekt_do_repozytorium
 
             int leftPadding = (width - s.Length) / 2;
             int rightPadding = width - s.Length - leftPadding;
-
+            
             return new string(' ', leftPadding) + s + new string(' ', rightPadding);
         }
     }
