@@ -9,3 +9,4 @@ h.RysujHistogram();
 
 Console.ReadLine();
 
+// test
