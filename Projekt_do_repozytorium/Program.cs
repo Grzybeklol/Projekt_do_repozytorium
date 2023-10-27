@@ -2,10 +2,10 @@
 ﻿
 using Projekt_do_repozytorium;
 
-string tekst = "hefi gvewitbhbiwerh bie hrdigfdisebsoavi faousfdbaosdAsafdfsadfadG ADFdsfsdfdgdxgsdsfdsfd#$%#w$twfafs#wtrfwgsd";
-Histogram h = new Histogram(tekst);
+string TeKsT = "hefi gvewitbhbiwerh bie hrdigfdisebsoavi faousfdbaosdAsafdfsadfadG ADFdsfsdfdgdxgsdsfdsfd#$%#w$twfafs#wtrfwgsd";
+HiStOgRaM h = new HiStOgRaM(TeKsT);
 
-h.RysujHistogram();
+h.RySuJhIsToGrAm();
 
 Console.ReadLine();
 
