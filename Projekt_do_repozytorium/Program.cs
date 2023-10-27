@@ -1,11 +1,11 @@
 
 ﻿
 using Projekt_do_repozytorium;
+using System;
 
-string TeKsT = "hefi gvewitbhbiwerh bie hrdigfdisebsoavi faousfdbaosdAsafdfsadfadG ADFdsfsdfdgdxgsdsfdsfd#$%#w$twfafs#wtrfwgsd";
-HiStOgRaM h = new HiStOgRaM(TeKsT);
-
-h.RySuJhIsToGrAm();
+string tekst=Menu.MenuHistogram();
+HiStOgRaM h = new HiStOgRaM(tekst);
+Console.Clear();
+h.h.RySuJhIsToGrAm();
 
 Console.ReadLine();
-
