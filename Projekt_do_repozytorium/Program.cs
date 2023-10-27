@@ -1,14 +1,11 @@
 
-﻿
 using Projekt_do_repozytorium;
+using System;
 
-string tekst = "hefi gvewitbhbiwerh bie hrdigfdisebsoavi faousfdbaosdAsafdfsadfadG ADFdsfsdfdgdxgsdsfdsfd#$%#w$twfafs#wtrfwgsd";
 List<char> zakresliter = new List<char> { 'A', 'H', 'F', 'D', 'X' };
-Histogram h = new Histogram(tekst, zakresliter);
-
-
-
-h.RysujHistogram();
+string tekst=Menu.MenuHistogram();
+HiStOgRaM h = new HiStOgRaM(tekst, zakresliter);
+Console.Clear();
+h.RySuJhIsToGrAm();
 
 Console.ReadLine();
-
