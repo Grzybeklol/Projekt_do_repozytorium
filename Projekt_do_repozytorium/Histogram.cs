@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,15 +10,19 @@ namespace Projekt_do_repozytorium
     //TODO: przygotować klasę do generowaniu HiStOgRaMu
     internal class HiStOgRaM
     {
+
         private int MaX_pRiV;
         private Dictionary<char, int> _SlOwNiK = new Dictionary<char, int>();
         public Dictionary<char, int> ElEmEnTy { get => _SlOwNiK; }
         public int MaX { get => MaX_pRiV; }
-        public HiStOgRaM(string TeKsT)
+        public List<char> zakres;
+        public HiStOgRaM(string TeKsT,,List<char> zakresliter)
         {
             TeKsT = PrZyGoTuJtEkSt(TeKsT);
+           zakres = zakresliter;
             UtWoRzSlOwNiK(TeKsT);
             ZnAjDzNaJwIeKsZeWyStApIeNiE();
+
         }
         private void ZnAjDzNaJwIeKsZeWyStApIeNiE()
         {
@@ -39,15 +43,20 @@ namespace Projekt_do_repozytorium
         {
             foreach (char t in TeKsT)
             {
+  
+   if (zakres.Contains(t))
+                {
                 if (!_SlOwNiK.ContainsKey(t))
                     _SlOwNiK[t] = 1;
                 else
                     _SlOwNiK[t]++;
+}
 
             }
         }
         public void RySuJhIsToGrAm(int wysokoscWykresu = 30)
         {
+
 
             float skala = (float)wysokoscWykresu / MaX;
             for (int linia = 0; linia < wysokoscWykresu; linia++)
@@ -59,8 +68,12 @@ namespace Projekt_do_repozytorium
                     else
                         Console.Write("       ");
 
+
+                    }
+                    Console.WriteLine();
                 }
                 Console.WriteLine();
+
             }
             Console.WriteLine();
             Console.WriteLine();
@@ -75,7 +88,10 @@ namespace Projekt_do_repozytorium
             {
                 Console.Write(CeNtErEdStRiNg(ElEmEnTy[t].ToString(), 7));
 
-            }
+
+                }
+            
+            
         }
         static string CeNtErEdStRiNg(string s, int width)
         {
@@ -86,7 +102,7 @@ namespace Projekt_do_repozytorium
 
             int leftPadding = (width - s.Length) / 2;
             int rightPadding = width - s.Length - leftPadding;
-
+            
             return new string(' ', leftPadding) + s + new string(' ', rightPadding);
         }
     }
