@@ -1,11 +1,11 @@
 
 ﻿
 using Projekt_do_repozytorium;
+using System;
 
-string tekst = "hefi gvewitbhbiwerh bie hrdigfdisebsoavi faousfdbaosdAsafdfsadfadG ADFdsfsdfdgdxgsdsfdsfd#$%#w$twfafs#wtrfwgsd";
+string tekst=Menu.MenuHistogram();
 Histogram h = new Histogram(tekst);
-
+Console.Clear();
 h.RysujHistogram();
 
 Console.ReadLine();
-
