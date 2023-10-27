@@ -4,8 +4,8 @@ using Projekt_do_repozytorium;
 using System;
 
 string tekst=Menu.MenuHistogram();
-Histogram h = new Histogram(tekst);
+HiStOgRaM h = new HiStOgRaM(tekst);
 Console.Clear();
-h.RysujHistogram();
+h.h.RySuJhIsToGrAm();
 
 Console.ReadLine();
